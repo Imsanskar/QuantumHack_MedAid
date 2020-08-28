@@ -1,10 +1,14 @@
 import React from 'react'
+import Navigation from '../CommonComponents/Navigation'
 
 const MainPage = () => {
     return (
+        <>
+        <Navigation />
         <div style={textStyle}>
             This is MEDAID App.
         </div>
+        </>
     )
 }
 
