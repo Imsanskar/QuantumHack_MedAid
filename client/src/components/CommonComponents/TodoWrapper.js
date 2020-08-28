@@ -1,7 +1,7 @@
 import React from 'react'
 import Todos from './Todos'
 import TodoItem from './TodoItem'
-
+import Heading from './Heading'
 
 export default class extends React.Component {
     state = {
@@ -29,17 +29,23 @@ export default class extends React.Component {
                 id={option.id}
                 flag={this.props.flag}
                 note={option.note}
+                food={option.food}
+                time={option.time}
+                calories={option.calorie}
             />
         ))
     }
 
-    addTodo = (title, duration = '', note = '') => {
+    addTodo = (parameter) => {
         let counter = this.state.counter + 1;
         const newTodo = {
             id: counter,
-            title,
-            duration,
-            note
+            title: parameter['title'],
+            duration: parameter['duration'],
+            note: parameter['note'],
+            food: parameter['food'],
+            time: parameter['time'],
+            calorie: parameter['calorie']
         }
         this.setState({ counter: counter, todos: [...this.state.todos, newTodo] })
     }
@@ -48,6 +54,7 @@ export default class extends React.Component {
     render() {
         return (
             <div>
+                <Heading headingTitle={this.props.headingTitle} />
                 <Todos flag={this.props.flag} form={this.props.form} todos={this.state} addTodo={this.addTodo} renderTodoItem={this.renderTodoItem} handleDelete={this.handleDelete} />
             </div>
         )

@@ -1,0 +1,10 @@
+.waterButton {
+    -webkit-filter: invert(1) opacity(75%);
+    filter: invert(1) opacity(75%);
+}
+
+.waterButton:hover {
+    -webkit-filter: invert(1) opacity(100%);
+    filter: invert(1) opacity(100%);
+}
+

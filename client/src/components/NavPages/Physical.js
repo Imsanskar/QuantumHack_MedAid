@@ -10,7 +10,7 @@ const Physical = () => {
         <div>
             <Navigation />
             <Heading headingTitle="Physical" />
-            <TodoWrapper title='' flag={flag} />
+            <TodoWrapper title='' headingTitle='Activity for today' flag={flag} />
         </div>
     )
 }

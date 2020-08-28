@@ -1,9 +1,20 @@
 import React, { Component } from 'react'
 import 'bootstrap/dist/css/bootstrap.css'
-import BlockText from './BlockText'
 import DeleteItem from '../Assets/SVG/remove_circle-24px.svg'
 
 export default class TodoItem extends React.Component {
+    noteRender = (note) => {
+        if (note != '') {
+            return (
+                <div>
+                    Note:<br />
+                    {note}
+                </div>
+            )
+        }
+
+    }
+
     renderComponent = () => {
         if (this.props.flag === 'exercise') {
             return (
@@ -11,7 +22,6 @@ export default class TodoItem extends React.Component {
                     Activity: { this.props.todoItem}<br />
 					Duration: {this.props.duration}<br />
 					Note:<br />{this.props.note}
-                    <img className="waterButton" src={DeleteItem} style={imgStyle} onClick={() => this.props.onDelete(this.props.id)} />
                 </div>
             )
         }
@@ -20,7 +30,17 @@ export default class TodoItem extends React.Component {
                 <div>
                     {this.props.title}<br />
                     {this.props.todoItem}
-                    <img className="waterButton" src={DeleteItem} style={imgStyle} onClick={() => this.props.onDelete(this.props.id)} />
+                </div>
+            )
+        }
+        else if (this.props.flag === 'foodWater') {
+            console.log(this.props.time)
+            return (
+                <div>
+                    Food: { this.props.food}<br />
+					Time: { this.props.time}<br />
+					Calories: { this.props.calories}<br />
+                    {this.noteRender(this.props.note)}
                 </div>
             )
         }
@@ -33,6 +53,7 @@ export default class TodoItem extends React.Component {
                 <div className="container shadow" style={panelStyle}>
                     <div style={panelStyle} className="text-left">
                         {this.renderComponent()}
+                        <img className="waterButton" src={DeleteItem} style={imgStyle} onClick={() => this.props.onDelete(this.props.id)} />
                     </div>
                 </ div>
             </div>
