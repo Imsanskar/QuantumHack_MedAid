@@ -1,9 +1,12 @@
 import React from 'react'
+import Navigation from '../CommonComponents/Navigation'
+import Heading from '../CommonComponents/Heading'
 
 const Student = () => {
     return (
         <div>
-            Student
+            <Navigation />
+            <Heading headingTitle="Student"/>
         </div>
     )
 }
