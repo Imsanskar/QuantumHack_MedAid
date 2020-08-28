@@ -1,0 +1,14 @@
+.range-button {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    border-color: #cc0000;
+    background-color: #cc0000;
+    color: white;
+    text-align: center;
+    padding: "auto auto"
+}
+
+.range-button:hover {
+    filter: brightness(120%);
+}

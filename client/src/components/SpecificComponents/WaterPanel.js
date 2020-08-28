@@ -3,7 +3,7 @@ import Glass from '../Assets/SVG/liquid.svg';
 import LitreBottle from '../Assets/SVG/water-bottle(1).svg';
 import LargeBottle from '../Assets/SVG/water-bottle.svg';
 import checkMark from '../Assets/SVG/check_circle-24px.svg';
-import './WaterPanel.css';
+import './CSS/WaterPanel.css';
 
 
 const WaterPanel = () => {

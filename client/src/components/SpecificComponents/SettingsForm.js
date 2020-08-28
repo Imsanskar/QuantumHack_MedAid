@@ -32,6 +32,7 @@ const SettingsForm = ({ errors, touched }) => {
                         <Field component="select" class="form-control" name="gender" id="gender">
                             <option value="male" label="male"></option>
                             <option value="female" label="female"></option>
+                            <option value="other" label="other"></option>
                         </Field>
                     </div>
                 </div>

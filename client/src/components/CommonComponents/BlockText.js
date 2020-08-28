@@ -7,9 +7,7 @@ function BlockText(props) {
 
     return (
         <div className="container shadow text-center"
-            style={{ ...blockStyle, backgroundColor: bgColor, color: txtColor, textAlign: txtAlign }} href={props.urlExternal}
-            target="_blank"
-            rel="noopener noreferrer">
+            style={{ ...blockStyle, backgroundColor: bgColor, color: txtColor, textAlign: txtAlign }}>
             {props.icon ?
                 <div className="row align-items-center">
                     <div className="col-11 text-left">{props.children}</div>
