@@ -1,0 +1,29 @@
+{
+  "name": "MedAid",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "develop": "nodemon ./bin/www"
+  },
+  "engines": {
+    "node": "12.x"
+  },
+  "dependencies": {
+    "async": "^3.2.0",
+    "bcrypt": "^4.0.1",
+    "compression": "^1.7.4",
+    "cookie-parser": "~1.4.4",
+    "cors": "^2.8.5",
+    "debug": "^2.6.9",
+    "dotenv": "^8.2.0",
+    "eslint": "^7.5.0",
+    "express": "~4.16.1",
+    "express-validator": "^6.4.1",
+    "helmet": "^3.23.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.13",
+    "morgan": "~1.9.1",
+    "supertest": "^4.0.2"
+  }
+}
