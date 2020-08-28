@@ -4,6 +4,7 @@ import notificationIconURL from '../Assets/SVG/notifications_none-24px.svg'
 import settingsIconURL from '../Assets/SVG/settings-24px.svg'
 import { NavLink } from 'react-router-dom';
 
+
 const Navigation = () => {
     return (
         <div className="jumbotron-fluid text-white" style={jumbotronStyle}>
