@@ -1,9 +1,12 @@
 import React from 'react'
+import Heading from '../CommonComponents/Heading'
+import Navigation from '../CommonComponents/Navigation'
 
 const Medicine = () => {
     return (
         <div>
-            Medicine
+            <Navigation />
+            <Heading headingTitle="Medicine"/>
         </div>
     )
 }

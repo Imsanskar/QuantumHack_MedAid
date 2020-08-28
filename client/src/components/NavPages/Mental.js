@@ -1,9 +1,12 @@
 import React from 'react'
+import Navigation from '../CommonComponents/Navigation'
+import Heading from '../CommonComponents/Heading'
 
 const Mental = () => {
     return (
         <div>
-            Mental Healtg
+            <Navigation />
+            <Heading headingTitle="Mental" />
         </div>
     )
 }

@@ -41,3 +41,12 @@
   padding: 0;
 }
 
+
+.App {
+  text-align: center;
+}
+
+.hrLine {
+  height: 1px;
+  width: 100%;
+}
