@@ -1,14 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react'
 import AddTodo from './AddTodo'
-import BlockText from './BlockText'
-import Heading from './Heading'
 import ExerciseForm from '../SpecificComponents/ExerciseForm'
 import FoodWaterForm from '../SpecificComponents/FoodWaterForm'
 
 export default class Todos extends React.Component {
-
-
-
     form = () => {
         if (this.props.flag === 'exercise') {
             return <ExerciseForm addTodo={this.props.addTodo} />

@@ -1,7 +1,6 @@
 import React from 'react'
 import Navigation from '../CommonComponents/Navigation'
 import Heading from '../CommonComponents/Heading'
-import ExerciseForm from '../SpecificComponents/ExerciseForm'
 import TodoWrapper from '../CommonComponents/TodoWrapper'
 
 const Physical = () => {
