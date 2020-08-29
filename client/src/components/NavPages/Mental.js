@@ -11,12 +11,20 @@ const Mental = () => {
             <Navigation />
             <Heading headingTitle="Mental" />
 
+            <HappinessScale />
+
             <BlockLink name="meditate" bgColor="white" icon={testIcon}
                 urlExternal="https://youtu.be/rkZl2gsLUp4">
                 Need to meditate?<br />
                 Check out this meditative playlist we have prepared just for you.
             </BlockLink>
-            <HappinessScale />
+
+            <BlockLink name="meditate" bgColor="white" icon={testIcon}
+                urlExternal="https://youtu.be/-GXfLY4-d8w">
+                Feelng anxious ?<br />
+                Check out this motivation playlist we have prepared just for you.
+            </BlockLink>
+
         </div>
     )
 }
