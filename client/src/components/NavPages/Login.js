@@ -1,5 +1,5 @@
 import React from 'react'
-import LoginForm from '../SpecificComponents/LoginForm'
+import LoginForm from '../SpecificComponents/Forms/LoginForm'
 import LoginNav from '../SpecificComponents/LoginNav'
 import { Link } from 'react-router-dom'
 

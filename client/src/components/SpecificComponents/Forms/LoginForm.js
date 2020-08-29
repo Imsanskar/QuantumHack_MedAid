@@ -23,7 +23,7 @@ const LoginForm = ({ errors, touched }) => {
                     </div>
                 </div>
                 <div className="row">
-                    <button class="btn text-white align-self-center" style={buttonStyle}>Log In</button>
+                    <button type="submit" class="btn text-white align-self-center" style={buttonStyle}>Log In</button>
                 </div>
             </Form>
         </div>

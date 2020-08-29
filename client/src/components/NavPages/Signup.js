@@ -1,6 +1,6 @@
 import React from 'react'
 import LoginNav from '../SpecificComponents/LoginNav'
-import SignupForm from '../SpecificComponents/SignupForm'
+import SignupForm from '../SpecificComponents/Forms/SignupForm'
 import { Link } from 'react-router-dom'
 
 const Signup = () => {
