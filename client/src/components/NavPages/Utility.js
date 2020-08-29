@@ -4,6 +4,9 @@ import Heading from '../CommonComponents/Heading'
 import BlockText from '../CommonComponents/BlockText'
 import UtilityForm from '../SpecificComponents/Forms/UtilityForm'
 import QuoteFetcher from '../SpecificComponents/QuoteFetcher'
+import BlockLink from '../CommonComponents/BlockLink'
+
+import { Link } from 'react-router-dom'
 
 const Utility = () => {
     const [menuShow, updateMenuStatus] = useState(false)
@@ -18,7 +21,7 @@ const Utility = () => {
             <Navigation />
             <Heading headingTitle="Utilites" />
             <span style={{ cursor: "pointer" }}>
-                <BlockText bgColor="#cc0000" icon="" name="daily measurements"
+                <BlockText bgColor="#cc0000" icon="" name=""
                     onClick={dropDownMeasurement}>
                     Update Your Daily Measurements
                 </BlockText>
@@ -26,6 +29,18 @@ const Utility = () => {
             <span className="hidden-form-mm" hidden>
                 <UtilityForm />
             </span>
+            <br />
+            <BlockLink urlExternal="https://www.myfitnesspal.com/" bgColor="white" icon="" name="">
+                Check out this website if you are having trouble counting calories.<br />
+                <strong>My Fitness Pal</strong>
+            </BlockLink>
+            <br />
+            <Link to="/breathe" style={{textDecoration: "none"}}>
+                <BlockText bgColor="white">
+                    Try out our 4-7-8 meditation breathing exercise
+                </BlockText>
+            </Link>
+            <br />
             <QuoteFetcher />
         </>
     )
