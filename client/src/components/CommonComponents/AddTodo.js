@@ -14,7 +14,7 @@ export default class AddTodo extends React.Component {
     onSubmitForm = (event) => {
         event.preventDefault();
         if (this.state.text !== '') {
-            this.props.addTodo(this.state.text)
+            this.props.addTodo({title:this.state.text})
         }
         this.setState({ text: '' })
     }

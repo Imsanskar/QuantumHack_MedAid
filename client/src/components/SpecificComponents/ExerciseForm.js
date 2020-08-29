@@ -16,7 +16,7 @@ export default class ExerciseForm extends React.Component{
 	onSubmitForm = (event) => {
 		event.preventDefault();
 		if(this.state.text !== ''){
-			this.props.addTodo(this.state.text, this.state.duration, this.state.note)
+			this.props.addTodo({title:this.state.text, duration:this.state.duration, note:this.state.note})
 		}
 		this.setState({text:'', duration:'', note:''})
 	}
