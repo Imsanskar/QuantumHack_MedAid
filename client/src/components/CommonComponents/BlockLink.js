@@ -3,7 +3,7 @@ import React from 'react';
 function BlockLink(props) {
     const bgColor = props.bgColor;
     const txtColor = bgColor === "white" ? "#cc0000" : "white";
-    const txtAlign = props.icon ? "left" : "center";
+    const txtAlign = props.icon ? "left" : "center"; 
     return (
         <a className="container shadow text-center"
             style={{ ...linkStyling, backgroundColor: bgColor, color: txtColor, textAlign: txtAlign }} href={props.urlExternal}
@@ -31,3 +31,5 @@ const linkStyling = {
 
 
 export default BlockLink;
+
+

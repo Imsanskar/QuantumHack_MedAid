@@ -3,6 +3,7 @@ import Navigation from '../CommonComponents/Navigation'
 import Heading from '../CommonComponents/Heading'
 import BlockLink from '../CommonComponents/BlockLink'
 import testIcon from '../Assets/SVG/account_circle-24px.svg'
+import HappinessScale from '../SpecificComponents/HappinessScale'
 
 const Mental = () => {
     return (
@@ -15,6 +16,7 @@ const Mental = () => {
                 Need to meditate?<br />
                 Check out this meditative playlist we have prepared just for you.
             </BlockLink>
+            <HappinessScale />
         </div>
     )
 }

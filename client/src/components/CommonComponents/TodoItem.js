@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
+import React from 'react'
 import 'bootstrap/dist/css/bootstrap.css'
 import DeleteItem from '../Assets/SVG/remove_circle-24px.svg'
 
 export default class TodoItem extends React.Component {
     noteRender = (note) => {
-        if (note != '') {
+        if (note !== '') {
             return (
                 <div>
                     Note:<br />
@@ -51,9 +51,12 @@ export default class TodoItem extends React.Component {
         return (
             <div>
                 <div className="container shadow" style={panelStyle}>
-                    <div style={panelStyle} className="text-left">
-                        {this.renderComponent()}
-                        <img className="waterButton" src={DeleteItem} style={imgStyle} onClick={() => this.props.onDelete(this.props.id)} />
+                    <div className="row align-items-center">
+                        <div className="col-10 text-left" style={textStyle}>{this.renderComponent()}</div>
+                        <div className="col-2">
+                            <img className="waterButton" src={DeleteItem} style={imgStyle} onClick={() => this.props.onDelete(this.props.id)}
+                                alt="delete" />
+                        </div>
                     </div>
                 </ div>
             </div>
@@ -62,26 +65,24 @@ export default class TodoItem extends React.Component {
 }
 
 
-
 const panelStyle = {
-    width: '50%',
-    position: 'relative',
     borderRadius: "20px",
-    padding: "5px",
+    padding: "15px",
     margin: "10px auto",
-    fontFamily: "Raleway-Medium",
-    fontSize: "18px",
     backgroundColor: "#cc0000",
-    color: "white",
 }
 
 
 const imgStyle = {
-    position: 'absolute',
-    top: '0px',
-    right: '0px',
     display: "block",
     height: "30px",
     width: "30px",
     cursor: "pointer",
+    margin: "auto auto"
+}
+
+const textStyle = {
+    fontFamily: "Raleway-Medium",
+    fontSize: "18px",
+    color: "white",
 }

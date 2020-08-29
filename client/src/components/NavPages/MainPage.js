@@ -8,9 +8,9 @@ import StudentIcon from '../Assets/SVG/school-24px.svg'
 import MedicineIcon from '../Assets/SVG/medical_services-24px.svg'
 import MentalIcon from '../Assets/SVG/self_improvement-24px.svg'
 import PhysicalIcon from '../Assets/SVG/pool-24px.svg'
+import UtilityIcon from '../Assets/SVG/construction-24px.svg'
+
 import { Link } from 'react-router-dom'
-
-
 
 const MainPage = () => {
     return (
@@ -37,6 +37,9 @@ const MainPage = () => {
                 <div className="row justify-content-center">
                     <Link to="/student" style={{ textDecoration: "none" }}>
                         <DashboardItem className="col-md-6 my-5" itemName="Student" itemImage={StudentIcon} itemInfo="Learn new health tips everyday" />
+                    </Link>
+                    <Link to="/utility" style={{ textDecoration: "none" }}>
+                        <DashboardItem className="col-md-6 my-5" itemName="Utility" itemImage={UtilityIcon} itemInfo="Health utilities making your life easier" />
                     </Link>
                 </div>
             </main>

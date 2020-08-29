@@ -1,8 +1,8 @@
 import React from 'react'
 import Navigation from '../CommonComponents/Navigation'
 import Heading from '../CommonComponents/Heading'
-import ExerciseForm from '../SpecificComponents/ExerciseForm'
 import TodoWrapper from '../CommonComponents/TodoWrapper'
+import ExercisePanel from '../SpecificComponents/ExercisePanel'
 
 const Physical = () => {
     const flag = 'exercise'
@@ -10,6 +10,7 @@ const Physical = () => {
         <div>
             <Navigation />
             <Heading headingTitle="Physical" />
+            <ExercisePanel />
             <TodoWrapper title='' headingTitle='Activity for today' flag={flag} />
         </div>
     )
