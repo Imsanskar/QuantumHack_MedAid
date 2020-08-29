@@ -13,4 +13,16 @@ router.post("/",
 // GET a specific user
 router.get("/:id",usersController.singleUser_get);
 
+//PUT (update) the user information
+router.put('/:id',
+  userControllerMiddlewares.validate_single_put,
+  usersController.singleUser_put);
+
+router.put('/:id/foodAndWaterStats', 
+  userControllerMiddlewares.validate_foodAndWater,
+  usersController.singleUser_foodAndWater);
+
+router.put('/:id/foodAndWaterTodo', 
+  userControllerMiddlewares.validate_foodAndWaterTodo,
+  usersController.singleUser_foodAndWaterTodo);
 module.exports = router;
