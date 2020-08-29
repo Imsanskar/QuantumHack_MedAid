@@ -11,7 +11,7 @@ const FoodWater = () => {
             <Heading headingTitle="Food and Water" />
             <WaterPanel />
 
-            <TodoWrapper flag='foodWater' />
+            <TodoWrapper flag='foodWater' headingTitle='Activity for today'/>
         </>
     )
 }
