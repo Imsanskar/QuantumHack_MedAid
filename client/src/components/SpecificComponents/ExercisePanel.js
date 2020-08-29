@@ -1,16 +1,9 @@
 import React, { useState } from 'react';
 
-const ExercisePanel = () => {
-    const [totalWorkTime, updatetotalWorkTime] = useState(0);
+const ExercisePanel = ({totalWorkTime, _recommended, _personal}) => {
+    const recommended = _recommended;
+    const personal = _personal
 
-    const recommended = 45;
-    const personal = 60;
-
-    const addFiveMinutes = () => {
-        if ((totalWorkTime * 100 / recommended) < 100) {
-            updatetotalWorkTime(prevValue => prevValue + 5);
-        }   
-    }
 
     return (
         <>
@@ -28,7 +21,6 @@ const ExercisePanel = () => {
                     </div>
                 </div>
             </div>
-            <button onClick={addFiveMinutes}>Add 5 minutes</button>
         </>
     )
 }

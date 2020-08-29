@@ -38,6 +38,10 @@ export default class extends React.Component {
 
     addTodo = (parameter) => {
         let counter = this.state.counter + 1;
+        if(parameter['duration'] != undefined){
+            console.log(parseInt(parameter['duration']))
+            this.props.addMinutes(parseInt(parameter['duration']))
+        }
         const newTodo = {
             id: counter,
             title: parameter['title'],
@@ -55,7 +59,7 @@ export default class extends React.Component {
         return (
             <div>
                 <Heading headingTitle={this.props.headingTitle} />
-                <Todos flag={this.props.flag} form={this.props.form} todos={this.state} addTodo={this.addTodo} renderTodoItem={this.renderTodoItem} handleDelete={this.handleDelete} />
+                <Todos flag={this.props.flag} form={this.props.form} todos={this.state} addTodo={this.addTodo} renderTodoItem={this.renderTodoItem} handleDelete={this.handleDelete}/>
             </div>
         )
     }
