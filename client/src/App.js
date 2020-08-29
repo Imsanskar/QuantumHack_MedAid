@@ -13,8 +13,10 @@ import Physical from './components/NavPages/Physical'
 import Student from './components/NavPages/Student'
 import Utility from './components/NavPages/Utility';
 
+
 import Login from './components/NavPages/Login';
 import Signup from './components/NavPages/Signup';
+import Breathe from './components/SpecificComponents/Breathe';
 
 function App() {
   return (
@@ -35,6 +37,8 @@ function App() {
           <Route path="/mental" exact component={Mental}/>
           <Route path="/student" exact component={Student}/>
           <Route path="/utility" exact component={Utility}/>
+        
+          <Route path="/breathe" exact component={Breathe}/>
         </Switch>
       </Router>
     </div>
