@@ -3,7 +3,6 @@ import './App.css';
 import MainPage from './components/NavPages/MainPage';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Settings from './components/NavPages/Settings';
-import UserProfile from './components/NavPages/UserProfile';
 
 import Mental from './components/NavPages/Mental'
 import FoodWater from './components/NavPages/FoodWater'
@@ -36,7 +35,6 @@ function App() {
           <Switch>
             <Route path="/" exact component={MainPage} />
             <Route path="/settings" exact component={Settings} />
-            <Route path="/profile" exact component={UserProfile} />
 
             <Route path="/food-and-water" exact component={FoodWater} />
             <Route path="/physical" exact component={Physical} />

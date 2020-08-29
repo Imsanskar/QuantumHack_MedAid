@@ -1,5 +1,4 @@
 import React from 'react';
-import accountIconURL from '../Assets/SVG/account_circle-24px.svg'
 import settingsIconURL from '../Assets/SVG/settings-24px.svg'
 import { NavLink } from 'react-router-dom';
 
@@ -9,15 +8,10 @@ const Navigation = () => {
         <div className="jumbotron-fluid text-white" style={jumbotronStyle}>
             <div className="container-fluid" style={{ margin: "auto" }}>
                 <div className="row align-items-center no-gutters">
-                    <div className="col-12 col-md-8 col-lg-10 text-center text-md-left" style={textStyle}>
+                    <div className="col-12 col-sm-11 col-lg-11 text-center text-md-left" style={textStyle}>
                         <NavLink to="/" exact style={{textDecoration: "none", color:"white"}}>MEDAID</NavLink>
                     </div>
-                    <div className="col col-md-2 col-lg-1" style={{ padding: "15px 0" }}>
-                        <NavLink to="/profile" exact activeStyle={activeLink}>
-                            <img style={imgStyle} alt="Profile" src={accountIconURL} />
-                        </NavLink>
-                    </div>
-                    <div className="col col-md-2 col-lg-1" style={{ padding: "15px 0" }}>
+                    <div className="col col-sm-1 col-lg-1" style={{ padding: "15px 0" }}>
                         <NavLink to="/settings" exact activeStyle={activeLink}>
                             <img style={imgStyle} alt="Settings" src={settingsIconURL} />
                         </NavLink>
