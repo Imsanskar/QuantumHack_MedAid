@@ -16,29 +16,41 @@ import Utility from './components/NavPages/Utility';
 import Login from './components/NavPages/Login';
 import Signup from './components/NavPages/Signup';
 
-function App() {
-  return (
-    <div className="App">
-      <Router>
-        <Switch>
-          <Route path="/" exact component={MainPage}/>
-          <Route path="/settings" exact component={Settings}/>
-          <Route path="/profile" exact component={UserProfile}/>
-          <Route path="/notification" exact component={Notifications}/>
-          
-          <Route path="/login" exact component={Login}/>
-          <Route path="/signup" exact component={Signup} />
+function App (){
+  if (!JSON.parse( localStorage.getItem('authorization') )){
+    return (
+      <div className="App">
+        <Router>
+          <Switch>
+            <Route path="/login" exact component={Login}/>
+            <Route path="/" exact component={Login}/>
+            <Route path="/signup" exact component={Signup} />
+          </Switch>
+        </Router>
+      </div>
+    );
+  } else {
+    return (
+      <div className="App">
+        <Router>
+          <Switch>
+            <Route path="/" exact component={MainPage}/>
+            <Route path="/settings" exact component={Settings}/>
+            <Route path="/profile" exact component={UserProfile}/>
+            <Route path="/notification" exact component={Notifications}/>
 
-          <Route path="/food-and-water" exact component={FoodWater}/>
-          <Route path="/medicine" exact component={Medicine}/>
-          <Route path="/physical" exact component={Physical}/>
-          <Route path="/mental" exact component={Mental}/>
-          <Route path="/student" exact component={Student}/>
-          <Route path="/utility" exact component={Utility}/>
-        </Switch>
-      </Router>
-    </div>
-  );
+
+            <Route path="/food-and-water" exact component={FoodWater}/>
+            <Route path="/medicine" exact component={Medicine}/>
+            <Route path="/physical" exact component={Physical}/>
+            <Route path="/mental" exact component={Mental}/>
+            <Route path="/student" exact component={Student}/>
+            <Route path="/utility" exact component={Utility}/>
+          </Switch>
+        </Router>
+      </div>
+    )
+  }
 }
 
 export default App;

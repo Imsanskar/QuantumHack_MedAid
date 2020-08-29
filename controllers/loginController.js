@@ -33,6 +33,7 @@ module.exports.login_post = async (req, res) => {
 
     //bcrypt compare
     let didMatch = await bcrypt.compare(req.body.password, currentUser.password);
+
     if (!didMatch){
       throw {
         type: "NO_MATCH",
@@ -51,18 +52,13 @@ module.exports.login_post = async (req, res) => {
 
     token = "Bearer " + token;
 
-    //13 days 23 hrs 50 minutes
-    let twoWeekApprox = 86400*1000*14;
-    let exactExpiryDAte = Date.now()+twoWeekApprox;
 
-    res.cookie('authorization', token, 
-      {maxAge: twoWeekApprox, httpOnly: true,
-      }).json({
-        id: currentUser._id,
-        expiresIn: exactExpiryDAte,
-        errors: null,
-        body: "Login permission granted"
-      });
+    res.json({
+      id: currentUser._id,
+      errors: null,
+      body: "Login permission granted",
+      authorization: token
+    });
   }
   catch(e){
     if ('type' in e){
@@ -79,11 +75,12 @@ module.exports.login_post = async (req, res) => {
             message: e.message,
           });
       }
+    } else {
+      return res.status(500).json({
+        errors: true,
+        message: "Internal server error"
+      });
     }
-    return res.status(500).json({
-      errors: true,
-      message: "Internal server error"
-    });
   }
 }
 

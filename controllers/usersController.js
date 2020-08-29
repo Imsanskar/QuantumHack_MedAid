@@ -6,6 +6,11 @@ const SALT_ROUNDS = 10;
 //middlewares and utilities
 const extractJWT = require('../middlewares/extract-jwt');
 
+/* Utilities */
+const formatDate = (x) => {
+  return x.getUTCFullYear()+"-"+x.getUTCMonth()+"-"+x.getUTCDate()
+}
+
 // POST request for creating new user
 module.exports.users_post = async function (req, res){
   //variables required for this endpoint
@@ -80,6 +85,7 @@ module.exports.singleUser_get = async function (req, res) {
     }
 
     //filter out appropriate fields to send
+    user.password = null;
     res.json({
       errors: false,
       user,
@@ -109,3 +115,188 @@ module.exports.singleUser_get = async function (req, res) {
     });
   }
 }
+
+module.exports.singleUser_put = async(req, res) => {
+  try{
+    const errors = validationResult(req);
+    if (!errors.isEmpty()){
+      throw {
+        type: "FORM_ERROR",
+        message: "Error in form",
+        formErrors: errors.array(),
+      }
+    }
+    extractJWT(req);
+    if (!req.user_query.id){
+      throw {
+        type: "UNAUTHORIZED_ACCESS",
+        message: "You do not authorized for this task",
+      }
+    }
+
+    let _ = await User.updateOne({_id: req.user_query.id}, {
+      age: req.body.age,
+      height: req.body.height,
+      weight: req.body.weight
+    });
+
+    res.json({
+      errors: false,
+      message: "Information updated!",
+    })
+  }
+  catch(err){
+    if ('type' in err){
+      switch (err.type){
+        case 'FORM_ERROR':
+          res.status(400).json({
+            errors: true,
+            message: err.message,
+            errorDetails: err.formErrors,
+          });
+          break;
+        case 'UNAUTHORIZED_ACCESS':
+          res.status(401).json({
+            errors: true,
+            message: err.message
+          });
+          break;
+      }
+    } else {
+      res.status(500).json({
+        errors: true,
+        message: "Internal Server Error",
+      });
+    }
+  }
+}
+
+/* Food and water stats */
+module.exports.singleUser_foodAndWater = async(req, res) => {
+  try{
+    const errors = validationResult(req);
+    extractJWT(req);
+    /* SAFETy */
+    if (!req.user_query.id){
+      throw {
+        type: "UNAUTHORIZED_ACCESS",
+        message: "You do not authorized for this task",
+      }
+    }
+    if (!errors.isEmpty()){
+      throw {
+        type: "FORM_ERROR",
+        message: "Error in form",
+        formErrors: errors.array(),
+      }
+    }
+    /* SAFETY */
+    const nowDate = new Date();
+    dateInFormat = nowDate.getUTCFullYear()+"-"+nowDate.getUTCMonth()+"-"+nowDate.getUTCDate();
+    const toPush = {
+      foodInCalories: req.body.food,
+      waterInLiters: req.body.water,
+      date: dateInFormat,
+    };
+
+    console.log(toPush)
+    let _ = await User.updateOne(
+      {_id: req.user_query.id},
+      { $push: { foodAndWaterStats: toPush } },
+    );
+
+    res.json({
+      errors: null,
+      message: "Updated value!",
+    })
+  }
+
+  catch(err){
+    if ('type' in err){
+      switch (err.type){
+        case 'FORM_ERROR':
+          res.status(400).json({
+            errors: true,
+            message: err.message,
+            errorDetails: err.formErrors,
+          });
+          break;
+        case 'UNAUTHORIZED_ACCESS':
+          res.status(401).json({
+            errors: true,
+            message: err.message
+          });
+          break;
+      }
+    } else {
+      res.status(500).json({
+        errors: true,
+        message: "Internal Server Error",
+      });
+    }
+  }
+}
+
+/* Food and water todo */
+module.exports.singleUser_foodAndWaterTodo = async(req, res) => {
+  try{
+    const errors = validationResult(req);
+    extractJWT(req);
+    /* SAFETy */
+    if (!req.user_query.id){
+      throw {
+        type: "UNAUTHORIZED_ACCESS",
+        message: "You do not authorized for this task",
+      }
+    }
+    if (!errors.isEmpty()){
+      throw {
+        type: "FORM_ERROR",
+        message: "Error in form",
+        formErrors: errors.array(),
+      }
+    }
+    /* SAFETY */
+    const toPush = {
+      title: req.body.title,
+      detail: req.body.detail,
+    };
+
+    let _ = await User.updateOne(
+      {_id: req.user_query.id},
+      { $push: { foodAndWaterTodos: toPush } },
+    );
+
+    res.json({
+      errors: null,
+      message: "Updated value!",
+    })
+  }
+
+  catch(err){
+    if ('type' in err){
+      switch (err.type){
+        case 'FORM_ERROR':
+          res.status(400).json({
+            errors: true,
+            message: err.message,
+            errorDetails: err.formErrors,
+          });
+          break;
+        case 'UNAUTHORIZED_ACCESS':
+          res.status(401).json({
+            errors: true,
+            message: err.message
+          });
+          break;
+      }
+    } else {
+      res.status(500).json({
+        errors: true,
+        message: "Internal Server Error",
+      });
+    }
+  }
+}
+
+/* Food and water todo */

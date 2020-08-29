@@ -11,6 +11,7 @@ module.exports = (req) => {
   let token;
   try{
     let auth = req.headers.authorization;
+    console.log(auth);
     token = auth && auth.split(' ')[1];
   }
   catch(err){
