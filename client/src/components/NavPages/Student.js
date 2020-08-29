@@ -8,6 +8,8 @@ const Student = () => {
         <div>
             <Navigation />
             <Heading headingTitle="Student" />
+
+
             <TodoWrapper title='Study Note #1' flag='student' headingTitle='r/TodayILearned'/>
         </div>
     )
