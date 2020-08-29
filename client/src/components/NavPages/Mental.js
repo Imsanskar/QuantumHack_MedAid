@@ -19,11 +19,11 @@ const Mental = () => {
                 Check out this meditative playlist we have prepared just for you.
             </BlockLink>
 
-            <BlockLink name="meditate" bgColor="white" icon={testIcon}
+            {/* <BlockLink name="meditate" bgColor="white" icon={testIcon}
                 urlExternal="https://youtu.be/-GXfLY4-d8w">
                 Feelng anxious ?<br />
                 Check out this motivation playlist we have prepared just for you.
-            </BlockLink>
+            </BlockLink> */}
 
         </div>
     )
